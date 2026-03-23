@@ -56,7 +56,7 @@ bash ~/.claude/skills/web-access/scripts/check-deps.sh
 Proxy 通过 WebSocket 直连 Chrome（兼容 `chrome://inspect` 方式，无需命令行参数启动），提供 HTTP API：
 
 ```bash
-# 启动（20 分钟无请求自动退出）
+# 启动
 node ~/.claude/skills/web-access/scripts/cdp-proxy.mjs &
 
 # 页面操作

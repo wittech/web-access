@@ -83,7 +83,7 @@ bash ~/.claude/skills/web-access/scripts/check-deps.sh
 bash ~/.claude/skills/web-access/scripts/check-deps.sh
 ```
 
-脚本会依次检查 Node.js、Chrome 端口，并确保 Proxy 已连接（未运行则自动启动并等待）。Proxy 20 分钟无请求自动退出，下次重新运行脚本即可。
+脚本会依次检查 Node.js、Chrome 端口，并确保 Proxy 已连接（未运行则自动启动并等待）。Proxy 启动后持续运行。
 
 ### Proxy API
 
@@ -164,10 +164,7 @@ curl -s "http://localhost:3456/close?target=ID"
 
 用 `/close` 关闭自己创建的 tab，必须保留用户原有的 tab 不受影响。
 
-Proxy 20 分钟无请求自动退出，无需手动清理。如需立即停止：
-```bash
-curl -s http://localhost:3456/health && pkill -f cdp-proxy.mjs
-```
+Proxy 持续运行，不建议主动停止——重启后需要在 Chrome 中重新授权 CDP 连接。
 
 ## 并行调研：子 Agent 分治策略
 
